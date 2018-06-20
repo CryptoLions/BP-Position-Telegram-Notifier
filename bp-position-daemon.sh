@@ -31,7 +31,7 @@ TIME_BETWEEN_CHECKS=5
 LOG_FILE="log_PlaceMonitor.log"
 
 # Path to you cleos wrapper
-CLEOS=/var/www/JungleMonitor/scripts/cleos.sh
+CLEOS=/path/to/cleos/cleos.sh
 
 
 #-----------------------------------------------------------------------
