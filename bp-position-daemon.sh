@@ -87,7 +87,7 @@ while true; do
 
 		# in case you move out from top 21 to standby
     		if [[ $LAST_POSITION -le 21 && $POSITION -gt 21 ]]; then
-		    MSG2="💤 your node moved to stadnby"
+		    MSG2="💤 your node moved to standby"
 		fi
 
 
