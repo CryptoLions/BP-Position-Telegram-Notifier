@@ -77,6 +77,7 @@ while true; do
 		if [[ $POSITION > $LAST_POSITION ]]; then
 		    SYMBOL="▼"
 		fi
+		PROC=$(echo $PROC*100 | bc)
 		MSG="$SYMBOL $DATE: Position Changed  $LAST_POSITION -> $POSITION  - $PROC %"
 
 
