@@ -7,3 +7,14 @@ start.sh to start
 You need to create Telegram bot before: @BotFather  
 
 <img src="http://jungle.cryptolions.io/imgs/screen_telegram.png">
+
+---
+
+First you need register a bot. You will receive BOT_ID. 
+Open your bot and send first /start
+
+visit url to get user ids:
+
+https://api.telegram.org/botBOT_ID/getUpdates
+
+where BOT_ID is your bot id
