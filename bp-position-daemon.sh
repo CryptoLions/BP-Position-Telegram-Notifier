@@ -87,22 +87,22 @@ while true; do
 
         MSG2="";
         if [[ "$NAME" == "$PRODUCER_NAME_CHECK" ]]; then
-	    	if [[ $POSITION != $LAST_POSITION && $LAST_POSITION != -1 ]]; then
+			if [[ $POSITION != $LAST_POSITION && $LAST_POSITION != -1 ]]; then
 
 				SYMBOL="▲"
 				if [[ $POSITION > $LAST_POSITION ]]; then
-			    	SYMBOL="▼"
+					SYMBOL="▼"
 				fi
 				MSG="$SYMBOL $DATE: Position Changed  $LAST_POSITION -> $POSITION - $PROC% %0A $EOS_VOTES_NICE EOS"
 
 
 				# in case you move to top 21 from standby
-	    		if [[ $LAST_POSITION -gt 21 && $POSITION -le 21 ]]; then
-			    	MSG2="✈ Be ready you are in top 21! You will start producing soon (in 2-3 rounds)"
+				if [[ $LAST_POSITION -gt 21 && $POSITION -le 21 ]]; then
+					MSG2="✈ Be ready you are in top 21! You will start producing soon (in 2-3 rounds)"
 				fi
 
 				# in case you move out from top 21 to standby
-		    	if [[ $LAST_POSITION -le 21 && $POSITION -gt 21 ]]; then
+				if [[ $LAST_POSITION -le 21 && $POSITION -gt 21 ]]; then
 				    MSG2="💤 your node moved to stadnby"
 				fi
 
@@ -110,26 +110,26 @@ while true; do
 
 				sendmessage "$MSG"
 				if [[ "$MSG2" != "" ]]; then
-			    	echo $MSG2 >> $LOG_FILE
-			    	sleep 1
-			    	sendmessage "$MSG2"
+					echo $MSG2 >> $LOG_FILE
+					sleep 1
+					sendmessage "$MSG2"
 				fi
 				#echo "--" >> $LOG_FILE
 				LAST_POSITION=$POSITION
 				break
-		    fi
+			fi
 
 			if [[ $LAST_EOS_VOTES == 0 ]]; then
 				LAST_EOS_VOTES=$EOS_VOTES;
 			fi
 
-		    if [[ $LAST_EOS_VOTES != $EOS_VOTES && $LAST_EOS_VOTES > 0 ]]; then
-    			DIFF=$(bc <<< "$EOS_VOTES - $LAST_EOS_VOTES");
+			if [[ $LAST_EOS_VOTES != $EOS_VOTES && $LAST_EOS_VOTES > 0 ]]; then
+				DIFF=$(bc <<< "$EOS_VOTES - $LAST_EOS_VOTES");
                 if (( $(echo "$DIFF > 0" |bc -l) )); then
 					SYM="✚"
                 else
-                	SYM="▬ "
-                	DIFF=$(bc <<< "scale=2;-1*$DIFF")
+					SYM="▬ "
+					DIFF=$(bc <<< "scale=2;-1*$DIFF")
                 fi
 
                 DIFF_NICE=$(echo $DIFF | sed ':a;s/\B[0-9]\{3\}\>/ &/;ta')
@@ -137,8 +137,8 @@ while true; do
                 MSG="$SYM$DIFF_NICE EOS Votes = $EOS_VOTES_NICE EOS";
                 sendmessage "$MSG"
 
-    			LAST_EOS_VOTES=$EOS_VOTES
-		    fi
+				LAST_EOS_VOTES=$EOS_VOTES
+			fi
 		fi
 	done
 
