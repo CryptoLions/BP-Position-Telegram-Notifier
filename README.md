@@ -10,6 +10,7 @@ Added Votes change tracking.
 
 <img src="http://jungle.cryptolions.io/imgs/screen_telegram.png">
 
+<img src="http://jungle.cryptolions.io/imgs/screen_telegram2.png">
 ---
 
 First you need register a bot. You will receive BOT_ID. 
