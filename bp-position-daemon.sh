@@ -34,6 +34,8 @@ LOG_FILE="log_PlaceMonitor.log"
 # Path to you cleos wrapper
 CLEOS=/path/to/cleos/cleos.sh
 
+# Min Votes change to inform
+MIN_EOS_VOTES_INFORM=100
 
 #-----------------------------------------------------------------------
 #-----------------------------------------------------------------------
@@ -132,11 +134,13 @@ while true; do
 					DIFF=$(bc <<< "scale=2;-1*$DIFF")
                 fi
 
-                DIFF_NICE=$(echo $DIFF | sed ':a;s/\B[0-9]\{3\}\>/ &/;ta')
+				if (( $(echo "$DIFF > $MIN_EOS_VOTES_INFORM" |bc -l) )); then
+                	DIFF_NICE=$(echo $DIFF | sed ':a;s/\B[0-9]\{3\}\>/ &/;ta')
 
-                MSG="$SYM$DIFF_NICE EOS Votes = $EOS_VOTES_NICE EOS";
-                sendmessage "$MSG"
-
+                	MSG="$SYM$DIFF_NICE EOS Votes --> $EOS_VOTES_NICE EOS";
+                	sendmessage "$MSG"
+				fi
+				
 				LAST_EOS_VOTES=$EOS_VOTES
 			fi
 		fi
