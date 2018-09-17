@@ -6,6 +6,8 @@ start.sh to start
 
 You need to create Telegram bot before: @BotFather  
 
+Added Votes change tracking.
+
 <img src="http://jungle.cryptolions.io/imgs/screen_telegram.png">
 
 ---
