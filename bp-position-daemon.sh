@@ -83,11 +83,11 @@ while true; do
 		EOS_VOTES=$(bc <<< "scale=2; $TOTAL_VOTES/$VOTE_WEIGHT/10000")
 		EOS_VOTES_NICE=$(echo $EOS_VOTES | sed ':a;s/\B[0-9]\{3\}\>/ &/;ta')
 
-        	POSITION=$(($POSITION+1))
+        POSITION=$(($POSITION+1))
 
-        	MSG2="";
-        	if [[ "$NAME" == "$PRODUCER_NAME_CHECK" ]]; then
-	    		if [[ $POSITION != $LAST_POSITION && $LAST_POSITION != -1 ]]; then
+        MSG2="";
+        if [[ "$NAME" == "$PRODUCER_NAME_CHECK" ]]; then
+	    	if [[ $POSITION != $LAST_POSITION && $LAST_POSITION != -1 ]]; then
 
 				SYMBOL="▲"
 				if [[ $POSITION > $LAST_POSITION ]]; then
