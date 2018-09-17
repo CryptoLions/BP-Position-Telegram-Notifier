@@ -13,7 +13,7 @@
 
 
 #-- Config ------------------------------
-LAST_POSITION=50;
+LAST_POSITION=30;
 
 # for what name moniotr position
 PRODUCER_NAME_CHECK="cryptolions1"
