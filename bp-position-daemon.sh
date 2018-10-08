@@ -137,7 +137,7 @@ while true; do
 				if (( $(echo "$DIFF > $MIN_EOS_VOTES_INFORM" |bc -l) )); then
                 	DIFF_NICE=$(echo $DIFF | sed ':a;s/\B[0-9]\{3\}\>/ &/;ta')
 
-                	MSG="$SYM$DIFF_NICE EOS Votes --> $EOS_VOTES_NICE EOS";
+                	MSG="$SYM$DIFF_NICE EOS Votes --> $EOS_VOTES_NICE EOS [$PROC%]";
                 	sendmessage "$MSG"
 				fi
 				
